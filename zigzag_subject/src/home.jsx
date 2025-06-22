@@ -97,13 +97,14 @@ function RecommendationTitle() {
 }
 function RecommendationGrid() {
   const items = Array.from({ length: 9 }, (_, i) => i + 1);
+  const imageSrc = '/images/goods.jpg'; // 하나의 이미지 사용
 
   return (
     <div className="recommendation-grid">
       {items.map((item) => (
         <div key={item} className="product-box">
           <div className="product-image-area">
-            <span>상품 {item}</span>
+            <img src={imageSrc} alt={`상품-${item}`} className="product-image" />
           </div>
           <div className="product-desc">
             상품 설명 {item}
