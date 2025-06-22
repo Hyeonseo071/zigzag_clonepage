@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FiSearch, FiShoppingBag } from 'react-icons/fi';
+import { FiHome, FiMenu, FiHeart, FiUser } from 'react-icons/fi';
 import './home.css';
 
 const categories = [
@@ -97,23 +98,31 @@ function RecommendationTitle() {
 }
 function RecommendationGrid() {
   const items = Array.from({ length: 9 }, (_, i) => i + 1);
-  const imageSrc = '/images/goods.jpg'; // 하나의 이미지 사용
+  const imageSrc = '/images/goods.jpg';
 
   return (
-    <div className="recommendation-grid">
-      {items.map((item) => (
-        <div key={item} className="product-box">
-          <div className="product-image-area">
-            <img src={imageSrc} alt={`상품-${item}`} className="product-image" />
+  <div className="recommendation-grid">
+    {items.map((item) => (
+      <div key={item} className="product-box">
+        <div className="product-image-area">
+          <img src={imageSrc} alt={`상품-${item}`} className="product-image" />
+        </div>
+        <div className="product-desc">
+          <div className="product-brand"><b>니썸</b></div>
+          <div className="product-info">
+            [압도적 판매량🔥, 누적 40만장 기록🌊]<br></br>세인트부츠컷데님 - 9color {item}
           </div>
-          <div className="product-desc">
-            상품 설명 {item}
+          <div className="product-price">
+            <span className="discount">50%</span> 15,000원
           </div>
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    ))}
+  </div>
+);
+
 }
+
 
 function CircleButtonBanner() {
   const circleItems = [
@@ -130,6 +139,28 @@ function CircleButtonBanner() {
     </div>
   );
 }
+function BottomNav() {
+  return (
+    <nav className="bottom-nav">
+      <div className="nav-item">
+        <FiHome className="nav-icon" />
+        <span>홈</span>
+      </div>
+      <div className="nav-item">
+        <FiMenu className="nav-icon" />
+        <span>카테고리</span>
+      </div>
+      <div className="nav-item">
+        <FiHeart className="nav-icon" />
+        <span>찜</span>
+      </div>
+      <div className="nav-item">
+        <FiUser className="nav-icon" />
+        <span>마이페이지</span>
+      </div>
+    </nav>
+  );
+}
 
 
 export default function MainComponent() {
@@ -140,7 +171,8 @@ export default function MainComponent() {
       <CircleButtonBanner />
       <CategoryBanner />
       <RecommendationTitle />  
-      <RecommendationGrid />{/* 슬라이더 아래에 위치. */}
+      <RecommendationGrid />
+      <BottomNav />{/* 슬라이더 아래에 위치. */}
     </div>
   );
 }

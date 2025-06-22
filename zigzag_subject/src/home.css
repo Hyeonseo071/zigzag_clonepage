@@ -169,13 +169,35 @@ body {
   align-items: center;
   justify-content: center;
 }
+.product-info {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-size: 14px;
+  color: #111;
+}
+.product-brand {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
 .product-desc {
   margin-top: 6px;
   font-size: 0.9rem;
   color: #333;
-  text-align: center;
+  padding: 8px 4px;
+  text-align: left;
   height: auto;
 }
+.discount {
+  color: hotpink;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
 .circle-banner {
   width: 100%;
   max-width: 1024px;
@@ -204,4 +226,37 @@ body {
 .circle-button:hover {
   background-color: #e0e0e0;
 }
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1024px; /* .layout 박스와 동일하게 */
+  right: 0;
+  height: 64px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  box-sizing: border-box;
+  border-radius: 16px 16px 0 0; /* 위쪽 두 모서리만 둥글게 */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
 
