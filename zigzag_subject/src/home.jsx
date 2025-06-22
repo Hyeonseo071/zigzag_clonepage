@@ -1,7 +1,14 @@
 // home.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiSearch, FiShoppingBag, FiHome, FiMenu, FiHeart, FiUser } from 'react-icons/fi';
+import {
+  FiSearch,
+  FiShoppingBag,
+  FiHome,
+  FiMenu,
+  FiHeart,
+  FiUser
+} from 'react-icons/fi';
 import './home.css';
 
 const categories = [
@@ -18,14 +25,22 @@ const categories = [
 ];
 
 function CategoryBanner() {
+  const navigate = useNavigate();
+
   return (
     <nav className="category-banner">
       {categories.map((category, index) => (
         <div key={index} className="category-wrapper">
-          <button className="circle-button" />
-          <a href={category.link} className="category-item">
+          <button
+            className="circle-button"
+            onClick={() => navigate(category.link)}
+          />
+          <button
+            className="category-item"
+            onClick={() => navigate(category.link)}
+          >
             {category.name}
-          </a>
+          </button>
         </div>
       ))}
     </nav>
@@ -41,7 +56,7 @@ function AutoSlider() {
     '/images/202506110315036782_049057.jpg',
     '/images/202506131148063470_040198.jpg',
     '/images/202506181016030255_052252.jpg',
-    '/images/202506200549521422_089342.jpg'
+    '/images/202506200549521422_089342.jpg',
   ];
 
   React.useEffect(() => {
@@ -75,12 +90,20 @@ function AutoSlider() {
 }
 
 function Header() {
+  const navigate = useNavigate(); // ✅ 추가
+
   return (
     <header className="header">
       <div>
         <div className="logo">Zigzag</div>
         <nav className="nav">
-          <FiSearch className="icon" title="검색" />
+          {/* ✅ 클릭 시 /search 로 이동 */}
+          <FiSearch
+            className="icon"
+            title="검색"
+            onClick={() => navigate('/search')}
+            style={{ cursor: 'pointer' }}
+          />
           <FiShoppingBag className="icon" title="장바구니" />
         </nav>
       </div>
@@ -89,11 +112,7 @@ function Header() {
 }
 
 function RecommendationTitle() {
-  return (
-    <h2 className="recommendation-title">
-      당신을 위한 추천 아이템
-    </h2>
-  );
+  return <h2 className="recommendation-title">당신을 위한 추천 아이템</h2>;
 }
 
 function RecommendationGrid() {
@@ -115,12 +134,19 @@ function RecommendationGrid() {
           style={{ cursor: 'pointer' }}
         >
           <div className="product-image-area">
-            <img src={imageSrc} alt={`상품-${item}`} className="product-image" />
+            <img
+              src={imageSrc}
+              alt={`상품-${item}`}
+              className="product-image"
+            />
           </div>
           <div className="product-desc">
-            <div className="product-brand"><b>니썸</b></div>
+            <div className="product-brand">
+              <b>니썸</b>
+            </div>
             <div className="product-info">
-              [압도적 판매량🔥, 누적 40만장 기록🌊]<br />
+              [압도적 판매량🔥, 누적 40만장 기록🌊]
+              <br />
               세인트부츠컷데님 - 9color {item}
             </div>
             <div className="product-price">
@@ -134,9 +160,7 @@ function RecommendationGrid() {
 }
 
 function CircleButtonBanner() {
-  const circleItems = [
-    // '추천', '인기', '신상', '여름세일', '브랜드', '이벤트'
-  ];
+  const circleItems = [];
 
   return (
     <div className="circle-banner">

@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home';
-import Goods from './goods'; // 방금 만든 goods.jsx
+import Goods from './goods';
+import Category from './category';
+import Search from './search'; // ✅ 추가
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/goods" element={<Goods />} />
+        <Route path="/category/:type" element={<Category />} />
+        <Route path="/search" element={<Search />} /> {/* ✅ 추가 */}
       </Routes>
     </Router>
   );
