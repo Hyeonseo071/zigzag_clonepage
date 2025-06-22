@@ -1,17 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home';
-import viteLogo from '/vite.svg'
-import './App.css'
+import Goods from './goods'; // 방금 만든 goods.jsx
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Home />
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/goods" element={<Goods />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

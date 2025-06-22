@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FiSearch, FiShoppingBag } from 'react-icons/fi';
-import { FiHome, FiMenu, FiHeart, FiUser } from 'react-icons/fi';
+// home.jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FiSearch, FiShoppingBag, FiHome, FiMenu, FiHeart, FiUser } from 'react-icons/fi';
 import './home.css';
 
 const categories = [
@@ -31,10 +32,9 @@ function CategoryBanner() {
   );
 }
 
-
 function AutoSlider() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const slideRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const slideRef = React.useRef(null);
 
   const images = [
     '/images/202406200045353136_065139.jpg',
@@ -44,16 +44,14 @@ function AutoSlider() {
     '/images/202506200549521422_089342.jpg'
   ];
 
-  const intervalTime = 5000;
-
-  useEffect(() => {
+  React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, intervalTime);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (slideRef.current) {
       slideRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
@@ -89,6 +87,7 @@ function Header() {
     </header>
   );
 }
+
 function RecommendationTitle() {
   return (
     <h2 className="recommendation-title">
@@ -96,33 +95,43 @@ function RecommendationTitle() {
     </h2>
   );
 }
+
 function RecommendationGrid() {
+  const navigate = useNavigate();
   const items = Array.from({ length: 9 }, (_, i) => i + 1);
   const imageSrc = '/images/goods.jpg';
 
+  const handleClick = () => {
+    navigate('/goods');
+  };
+
   return (
-  <div className="recommendation-grid">
-    {items.map((item) => (
-      <div key={item} className="product-box">
-        <div className="product-image-area">
-          <img src={imageSrc} alt={`상품-${item}`} className="product-image" />
-        </div>
-        <div className="product-desc">
-          <div className="product-brand"><b>니썸</b></div>
-          <div className="product-info">
-            [압도적 판매량🔥, 누적 40만장 기록🌊]<br></br>세인트부츠컷데님 - 9color {item}
+    <div className="recommendation-grid">
+      {items.map((item) => (
+        <div
+          key={item}
+          className="product-box"
+          onClick={handleClick}
+          style={{ cursor: 'pointer' }}
+        >
+          <div className="product-image-area">
+            <img src={imageSrc} alt={`상품-${item}`} className="product-image" />
           </div>
-          <div className="product-price">
-            <span className="discount">50%</span> 15,000원
+          <div className="product-desc">
+            <div className="product-brand"><b>니썸</b></div>
+            <div className="product-info">
+              [압도적 판매량🔥, 누적 40만장 기록🌊]<br />
+              세인트부츠컷데님 - 9color {item}
+            </div>
+            <div className="product-price">
+              <span className="discount">50%</span> 15,000원
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-);
-
+      ))}
+    </div>
+  );
 }
-
 
 function CircleButtonBanner() {
   const circleItems = [
@@ -139,6 +148,7 @@ function CircleButtonBanner() {
     </div>
   );
 }
+
 function BottomNav() {
   return (
     <nav className="bottom-nav">
@@ -162,18 +172,16 @@ function BottomNav() {
   );
 }
 
-
-export default function MainComponent() {
+export default function Home() {
   return (
     <div className="layout">
       <Header />
       <AutoSlider />
       <CircleButtonBanner />
       <CategoryBanner />
-      <RecommendationTitle />  
+      <RecommendationTitle />
       <RecommendationGrid />
-      <BottomNav />{/* 슬라이더 아래에 위치. */}
+      <BottomNav />
     </div>
   );
 }
-
