@@ -105,3 +105,60 @@
 .keyword-btn:hover {
   background-color: #ccc;
 }
+.popular-search-section {
+  margin-top: 30px;
+  padding: 0 16px;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.update-time {
+  font-size: 12px;
+  color: gray;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.popular-search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.popular-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.rank {
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+.term {
+  flex-grow: 1;
+}
+
+.trend {
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.trend.up {
+  color: red;
+}
+
+.trend.down {
+  color: blue;
+}
+
+.trend.same {
+  color: gray;
+}
