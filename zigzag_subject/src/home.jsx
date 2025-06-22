@@ -19,13 +19,17 @@ function CategoryBanner() {
   return (
     <nav className="category-banner">
       {categories.map((category, index) => (
-        <a key={index} href={category.link} className="category-item">
-          {category.name}
-        </a>
+        <div key={index} className="category-wrapper">
+          <button className="circle-button" />
+          <a href={category.link} className="category-item">
+            {category.name}
+          </a>
+        </div>
       ))}
     </nav>
   );
 }
+
 
 function AutoSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -92,15 +96,35 @@ function RecommendationTitle() {
   );
 }
 function RecommendationGrid() {
-  // 총 9개 상품 (번호만 표시)
   const items = Array.from({ length: 9 }, (_, i) => i + 1);
 
   return (
     <div className="recommendation-grid">
       {items.map((item) => (
         <div key={item} className="product-box">
-          <span>상품 {item}</span>
+          <div className="product-image-area">
+            <span>상품 {item}</span>
+          </div>
+          <div className="product-desc">
+            상품 설명 {item}
+          </div>
         </div>
+      ))}
+    </div>
+  );
+}
+
+function CircleButtonBanner() {
+  const circleItems = [
+    // '추천', '인기', '신상', '여름세일', '브랜드', '이벤트'
+  ];
+
+  return (
+    <div className="circle-banner">
+      {circleItems.map((text, index) => (
+        <button key={index} className="circle-button">
+          {text}
+        </button>
       ))}
     </div>
   );
@@ -112,6 +136,7 @@ export default function MainComponent() {
     <div className="layout">
       <Header />
       <AutoSlider />
+      <CircleButtonBanner />
       <CategoryBanner />
       <RecommendationTitle />  
       <RecommendationGrid />{/* 슬라이더 아래에 위치. */}
