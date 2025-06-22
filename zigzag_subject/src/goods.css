@@ -1,0 +1,97 @@
+/* goods.css */
+
+.goods-page {
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.goods-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.goods-header-inner {
+  max-width: 1024px;
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.goods-header-right {
+  display: flex;
+  gap: 12px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goods-content {
+  margin-top: 60px; /* 헤더 높이만큼 공간 확보 */
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.goods-main-image {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.goods-main-image img {
+  display: block; /* 이미지 아래 여백 제거 */
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* 이미지 바로 밑 검은 박스 */
+.viewing-box {
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 10px 0 10px 16px; /* 상하 10px, 좌 16px */
+  font-size: 14px; /* 너무 작지 않게 */
+  font-weight: 400;
+  border-radius: 0 0 4px 4px;
+  user-select: none;
+  text-align: left;
+  margin: 0;
+  box-sizing: border-box;
+}
+
