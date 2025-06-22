@@ -1,0 +1,166 @@
+body {
+  background-color: #f8f8f8; /* 지그재그처럼 연한 배경색 */
+  padding: 40px 0; /* 위아래 여백 */
+  margin: 0;
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+}
+
+.layout {
+  width: 1024px; /* 최대 너비 고정 */
+  max-width: 1024px;
+  background-color: white; /* 흰 배경 */
+  box-sizing: border-box;
+  padding-top: 60px; /* 헤더 높이만큼 패딩 */
+  box-shadow: 0 0 8px rgba(0,0,0,0.1); /* 약간 그림자 */
+  border-radius: 4px; /* 둥근 모서리 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 헤더 */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.header > div {
+  max-width: 1024px;
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 60px;
+  line-height: normal;
+}
+
+/* 네비게이션 아이콘 */
+.nav {
+  display: flex;
+  gap: 20px;
+  font-size: 1.6rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  vertical-align: middle;
+  user-select: none;
+}
+
+/* 카테고리 배너 */
+.category-banner {
+  width: 100%;
+  margin-top: 16px;
+  max-width: 1024px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 0;
+  box-sizing: border-box;
+}
+
+.category-item {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.category-item:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* 슬라이더 영역 */
+.sliderContainer {
+  width: 100%;
+  max-width: 1024px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px; /* 슬라이더 고정 높이 */
+  margin-top: 16px;
+  box-sizing: border-box;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.slideBox {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;        /* 또는 cover */
+  object-position: center bottom;  /* 가로 중앙, 세로 아래쪽 정렬 */
+}
+.recommendation-title {
+  width: 100%;
+  max-width: 1024px;
+  margin: 24px 0 16px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  text-align: left; /* 왼쪽 정렬 */
+  padding-left: 75px; /* 좌우 여백 맞춤 */
+  box-sizing: border-box;
+}
+/* 추천 상품 그리드 */
+.recommendation-grid {
+  width: 90%;
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 */
+  gap: 5px; /* 아이템 간격 */
+  padding: 0 16px 40px 16px;
+  box-sizing: border-box;
+}
+
+/* 상품 네모 박스 */
+.product-box {
+  background-color: #eee;
+  height: 300px; /* 원하는 높이 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-weight: 500;
+  user-select: none;
+}
