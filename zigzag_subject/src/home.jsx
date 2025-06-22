@@ -114,7 +114,7 @@ export default function MainComponent() {
       <AutoSlider />
       <CategoryBanner />
       <RecommendationTitle />  
-      <RecommendationGrid />{/* 슬라이더 아래에 위치 */}
+      <RecommendationGrid />{/* 슬라이더 아래에 위치. */}
     </div>
   );
 }
