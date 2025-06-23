@@ -90,26 +90,32 @@ function AutoSlider() {
 }
 
 function Header() {
-  const navigate = useNavigate(); // ✅ 추가
+  const navigate = useNavigate();
 
   return (
     <header className="header">
       <div>
         <div className="logo">Zigzag</div>
         <nav className="nav">
-          {/* ✅ 클릭 시 /search 로 이동 */}
           <FiSearch
             className="icon"
             title="검색"
             onClick={() => navigate('/search')}
             style={{ cursor: 'pointer' }}
           />
-          <FiShoppingBag className="icon" title="장바구니" />
+          {/* 🔽 이 부분을 수정합니다 */}
+          <FiShoppingBag
+            className="icon"
+            title="장바구니"
+            onClick={() => navigate('/cart')}
+            style={{ cursor: 'pointer' }}
+          />
         </nav>
       </div>
     </header>
   );
 }
+
 
 function RecommendationTitle() {
   return <h2 className="recommendation-title">당신을 위한 추천 아이템</h2>;
