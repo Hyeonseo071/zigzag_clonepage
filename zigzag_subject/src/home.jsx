@@ -103,7 +103,6 @@ function Header() {
             onClick={() => navigate('/search')}
             style={{ cursor: 'pointer' }}
           />
-          {/* 🔽 이 부분을 수정합니다 */}
           <FiShoppingBag
             className="icon"
             title="장바구니"
@@ -115,7 +114,6 @@ function Header() {
     </header>
   );
 }
-
 
 function RecommendationTitle() {
   return <h2 className="recommendation-title">당신을 위한 추천 아이템</h2>;
@@ -180,21 +178,23 @@ function CircleButtonBanner() {
 }
 
 function BottomNav() {
+  const navigate = useNavigate();
+
   return (
     <nav className="bottom-nav">
-      <div className="nav-item">
+      <div className="nav-item" onClick={() => navigate('/')}>
         <FiHome className="nav-icon" />
         <span>홈</span>
       </div>
-      <div className="nav-item">
+      <div className="nav-item" onClick={() => navigate('/category/express')}>
         <FiMenu className="nav-icon" />
         <span>카테고리</span>
       </div>
-      <div className="nav-item">
+      <div className="nav-item" onClick={() => navigate('/login')}>
         <FiHeart className="nav-icon" />
         <span>찜</span>
       </div>
-      <div className="nav-item">
+      <div className="nav-item" onClick={() => navigate('/login')}>
         <FiUser className="nav-icon" />
         <span>마이페이지</span>
       </div>
